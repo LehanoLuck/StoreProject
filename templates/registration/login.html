@@ -1,0 +1,48 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+SignIn
+{% endblock %}
+
+{% block content %}
+<section>
+  <div class="container padding_small">
+    <div class="row">
+      <div class="col-md-6 margintop40 ">
+        <form  class="contact-form" method="post">
+            {% csrf_token %}
+            <div class="form-group col-md-7">
+              <h4 class="heading uppercase bottom30">Войти</h4>
+                <label for="{{ form.username.id_for_label }}">Логин:</label>
+                <div>{{ form.username }}</div>
+            </div>
+            <div class="form-group col-md-7">
+                <label for="{{ form.password.id_for_label }}">Пароль:</label>
+                <div>{{ form.password }}</div>
+            </div>
+            <div class="form-group col-md-12">
+              <a href="create_account.html">Забыли пароль?</a>
+            </div>
+            <div class="form-group col-md-12" >
+                <div>
+                    <button type="submit" class="uppercase btn-light border-radius margintop30">Войти</button>
+                </div>
+                <div>
+                    <a href="{% url 'signup' %}" class="uppercase btn-dark border-radius margintop30">Зарегистрироваться</a>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+            <div class="media blog_box">
+              <div class="media-left">
+                <a href="http://localhost:8000/shop/">
+                  <img class="media-object" src="{% static 'img/реклама-1.PNG' %}" alt="...">
+                </a>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

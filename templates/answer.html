@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<section id="contact" class="padding_top">
+    <div class="container ">
+      <div class="row">
+          <div class="col-md-12">
+              <h3 class="uppercase heading bottom30 text-center">Задать вопрос</h3>
+
+            <p class="bottom30 text-center">У вас есть вопрос? Мы всегда рады помочь! <br>
+                Звоните: 8 (ХХХ) ХХХ ХХ-ХХ или пишите: <br>
+            krechetova-73@mail.ru</p>
+</div>
+            <div class="col-md-12">
+
+          <form class="contact-form padding_bottom">
+            <div class="row">
+              <div class="col-md-6 form-group">
+
+                <input type="text" class="form-control" placeholder="Имя">
+              </div>
+              <div class="col-md-6 form-group">
+
+                <input type="email" class="form-control" placeholder="e-mail">
+              </div>
+              <div class="col-md-12 form-group">
+                <textarea class="form-control" placeholder="Добавьте сообщение"></textarea>
+                <input type="submit" class="btn-form uppercase border-radius margintop40" value="Отправить">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

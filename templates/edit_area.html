@@ -1,0 +1,60 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 margintop40">
+        <h4 class="heading uppercase bottom30">Редактировать информацию</h4>
+          <form class="contact-form">
+            <p class="content_space">В данном разделе вы можете просмотреть и отредактировать личную информацию.</p>
+
+
+
+            <div class="form-group">
+              <label >Имя</label>
+              <input  class="form-control"  placeholder="Иван">
+            </div>
+            <div class="form-group">
+              <label >Фамилия</label>
+              <input class="form-control" placeholder="Иванов">
+            </div>
+            <div class="form-group">
+              <label >Логин</label>
+              <input class="form-control" placeholder="EOne111">
+            </div>
+            <div class="form-group">
+              <label >E-mail</label>
+              <input  class="form-control"  placeholder="ivanov@example.com">
+            </div>
+            <div class="form-group">
+              <label >Пороль</label>
+              <input class="form-control"  placeholder="*****">
+            </div>
+            <div class="form-group">
+              <label >Повторите пороль</label>
+              <input  class="form-control"  placeholder="*****">
+            </div>
+            <div class="form-group">
+              <label >Город</label>
+              <input  class="form-control"  placeholder="Томск">
+            </div>
+            <div class="form-group">
+              <label >Улица</label>
+              <input  class="form-control"  placeholder="Ленина">
+            </div>
+            <div class="form-group">
+              <label >Дом</label>
+              <input  class="form-control"  placeholder="1">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="uppercase margintop40 btn-dark" value="Сохранить изменения">
+                </div>
+        </form>
+          </div>
+        </div>
+      </div>
+{% endblock %}

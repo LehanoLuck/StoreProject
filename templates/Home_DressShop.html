@@ -1,0 +1,318 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<section  >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="http://localhost:8000/shop/">
+              <img class="media-object" src="{% static 'img/реклама-1.png' %}" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="http://localhost:8000/shop/">
+              <img class="media-object" src="{% static 'img/реклама-3.PNG' %}" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="padding_bottom" style="background-color: rgb(212,228,224)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="http://localhost:8000/shop/">
+              <img class="media-object" src="{% static 'img/реклама-4.PNG' %}" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="http://localhost:8000/shop/">
+              <img class="media-object" src="{% static 'img/реклама-2.PNG' %}" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--NEW ARRIVALS-->
+<section id="arrivals" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="heading_space uppercase">Новые поступления
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div id="fourCol-slider" class="owl-carousel">
+        <div class="item">
+          <div class="product_wrap">
+            <div class="image">
+              <div class="social">
+                <ul>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-expand">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-exchange">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-heart-o">
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <a class="fancybox" href="../static/img/заглушка.PNG">
+                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
+              </a>
+            </div>
+            <div class="product_desc">
+              <p>Юбка в складку
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>2000.00
+              </span>
+              <a class="fancybox" href="../static/img/заглушка.PNG" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="product_wrap">
+            <div class="image">
+              <div class="tag">
+                <div class="tag-btn">
+                  <span class="uppercase text-center">New
+                  </span>
+                </div>
+              </div>
+              <a class="fancybox" href="../static/img/заглушка.PNG">
+                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
+              </a>
+              <div class="social">
+                <ul>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-expand">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-exchange">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-heart-o">
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="product_desc">
+              <p>Брюки
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>2200.00
+              </span>
+              <a class="fancybox" href="../static/img/заглушка.PNG" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="product_wrap">
+            <div class="image">
+              <a class="fancybox" href="../static/img/заглушка.PNG">
+                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
+              </a>
+              <div class="social">
+                <ul>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-expand">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-exchange">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-heart-o">
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="product_desc">
+              <p>Платье
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>1200.00
+              </span>
+              <a class="fancybox" href="../static/img/product7.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="product_wrap">
+            <div class="image">
+              <a class="fancybox" href="../static/img/product8.jpg">
+                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
+              </a>
+              <div class="social">
+                <ul>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-expand">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-exchange">
+                      </i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#.">
+                      <i class="fa fa-heart-o">
+                      </i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="product_desc">
+              <p>Свитшот
+              </p>
+              <span class="price">
+                <i class="fa fa-gbp">
+                </i>1500.00
+              </span>
+              <a class="fancybox" href="../static/img/product8.jpg" data-fancybox-group="gallery">
+                <i class="fa fa-shopping-bag open">
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--OUR BLOG-->
+<section id="blog" class="padding" style="background-color: black">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="catalog.html">
+              <img class="media-object" src="../static/img/реклама-1.PNG" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="media blog_box">
+          <div class="media-left">
+            <a href="catalog.html">
+              <img class="media-object" src="../static/img/реклама-2.PNG" alt="...">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--BRANDS-->
+<section id="brands" class="padding">
+  <h3 class="hidden">hidden
+  </h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="brand-slider" class="owl-carousel; center-pic">
+          <div class="item text-center">
+            <img src="../static/img/logo1.png" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo2.jpg" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo3.png" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo4.jpg" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo5.jpg" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo1.png" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo2.jpg" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo3.png" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo4.jpg" alt="Brand Logo">
+          </div>
+          <div class="item text-center">
+            <img src="../static/img/logo5.jpg" alt="Brand Logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

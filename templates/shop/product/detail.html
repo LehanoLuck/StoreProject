@@ -1,0 +1,46 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.title }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+<section id="cart" class="padding_bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div id="slider_product" class="cbp margintop40">
+            <div class="cbp-item">
+              <div class="cbp-caption">
+                <div class="cbp-caption-defaultWrap">
+                  <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="detail_pro margintop40">
+            <label >{{ product.name }}</label>
+            <p class="bottom30">{{ product.description|linebreaks }}</p>
+            <h2 class="price marginbottom15"><i class="fa fa-rub"></i>{{ product.price }}</h2>
+
+            <form class="cart-form" action="{% url 'cart:cart_add' product.id %}" method="post">
+              <div class="form-group">
+                <label >Цвет</label>
+                <p class="bottom30">{{ color.name }}</p>
+                <label >Размер</label>
+                <p class="bottom30">{{ size.name }}</p>
+                <div>
+                  {{ cart_product_form }}
+                  {% csrf_token %}
+                </div>
+                <input type="submit" value="Добавить в корзину">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{% endblock %}

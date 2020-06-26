@@ -1,0 +1,143 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+  <section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 margintop40">
+        <h4 class="heading uppercase bottom30">Личный кабинет</h4>
+
+          <form class="contact-form">
+            <p class="content_space">В данном разделе вы можете просмотреть личную информацию.</p>
+
+            <div class="form-group">
+              <label >Имя: </label> Иван
+            </div>
+            <div class="form-group">
+              <label >Фамилия: </label> Иванов
+            </div>
+            <div class="form-group">
+              <label >Логин: </label> EOne111
+            </div>
+            <div class="form-group">
+              <label >E-mail: </label> ivanov@example.com"
+            </div>
+            <div class="form-group">
+              <label >Город: </label> Томск
+            </div>
+            <div class="form-group">
+              <label >Улица: </label> Ленина
+            </div>
+            <div class="form-group">
+              <label >Дом:</label> 1
+            </div>
+            <div class="form-group">
+              <a href="http://localhost:8000/edit_area" class="uppercase btn-dark border-radius margintop30">Редактировать</a>
+                </div>
+        </form>
+      </div>
+        <div class="col-md-6 margintop40">
+            <h4 class="heading uppercase bottom30">История заказов</h4>
+            <div class="table-responsive">
+                <label >Дата заказа: </label> 27.02.2020
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="uppercase">Наименование товара</th>
+                <th class="uppercase">Цена</th>
+                <th class="uppercase">Кол-во</th>
+                <th class="uppercase">Итого:</th>
+                <th class="uppercase"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="product-name">
+                    <h5> Товар #01</h5>
+                </td>
+                <td class="price">
+                 <h5>$170.00</h5>
+                </td>
+                <td class="text-center">
+                  <h5> 01</h5>
+                </td>
+                <td class="price">
+                 <h5>$340.00</h5>
+                </td>
+                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
+              </tr>
+              <tr>
+                 <td class="product-name">
+                    <h5> Товар #01</h5>
+                </td>
+                <td class="price">
+                 <h5>$170.00</h5>
+                </td>
+                <td class="text-center">
+                  <h5> 01</h5>
+                </td>
+                <td class="price">
+                 <h5>$340.00</h5>
+                </td>
+                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
+
+              </tr>
+            </tbody>
+          </table>
+                <label >Дата заказа: </label> 25.02.2020
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="uppercase">Наименование товара</th>
+                <th class="uppercase">Цена</th>
+                <th class="uppercase">Кол-во</th>
+                <th class="uppercase">Итого:</th>
+                <th class="uppercase"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="product-name">
+                    <h5> Товар #01</h5>
+                </td>
+                <td class="price">
+                 <h5>$170.00</h5>
+                </td>
+                <td class="text-center">
+                  <h5> 01</h5>
+                </td>
+                <td class="price">
+                 <h5>$340.00</h5>
+                </td>
+                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
+              </tr>
+              <tr>
+                 <td class="product-name">
+                    <h5> Товар #01</h5>
+                </td>
+                <td class="price">
+                 <h5>$170.00</h5>
+                </td>
+                <td class="text-center">
+                  <h5> 01</h5>
+                </td>
+                <td class="price">
+                 <h5>$340.00</h5>
+                </td>
+                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
+
+              </tr>
+            </tbody>
+          </table>
+          </div>
+
+
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
