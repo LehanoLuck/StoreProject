@@ -10,35 +10,36 @@ Home
     <div class="row">
       <div class="col-md-6 margintop40">
         <h4 class="heading uppercase bottom30">Личный кабинет</h4>
-
+          {% if user.is_authenticated %}
           <form class="contact-form">
             <p class="content_space">В данном разделе вы можете просмотреть личную информацию.</p>
 
             <div class="form-group">
-              <label >Имя: </label> Иван
+              <label >Имя: </label> {% user.first_name %}
             </div>
             <div class="form-group">
-              <label >Фамилия: </label> Иванов
+              <label >Фамилия: </label> {% user.last_name %}
             </div>
             <div class="form-group">
-              <label >Логин: </label> EOne111
+              <label >Логин: </label> {% user.username %}
             </div>
             <div class="form-group">
-              <label >E-mail: </label> ivanov@example.com"
+              <label >Email: </label> {% user.email %}
             </div>
             <div class="form-group">
-              <label >Город: </label> Томск
+              <label >Город: </label> {% user.city %}
             </div>
             <div class="form-group">
-              <label >Улица: </label> Ленина
+              <label >Улица: </label> {% user.street %}
             </div>
             <div class="form-group">
-              <label >Дом:</label> 1
+              <label >Дом:</label> {% user.house %}
             </div>
             <div class="form-group">
               <a href="http://localhost:8000/edit_area" class="uppercase btn-dark border-radius margintop30">Редактировать</a>
                 </div>
         </form>
+        {% endif %}
       </div>
         <div class="col-md-6 margintop40">
             <h4 class="heading uppercase bottom30">История заказов</h4>

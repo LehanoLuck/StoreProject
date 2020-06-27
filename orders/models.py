@@ -3,15 +3,16 @@ from cloathesStore.models import Product
 
 
 class Order(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
-    address = models.CharField(max_length=250)
-    postal_code = models.CharField(max_length=20)
-    city = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    paid = models.BooleanField(default=False)
+    first_name = models.CharField(max_length=50, null=True)
+    last_name = models.CharField(max_length=50, null=True)
+    email = models.EmailField(null=True)
+    username = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True)
+    street = models.CharField(max_length=100, null=True)
+    house = models.CharField(max_length=100, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+    paid = models.BooleanField(default=False, null=True)
 
     class Meta:
         ordering = ('-created',)

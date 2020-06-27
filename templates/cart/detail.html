@@ -96,7 +96,7 @@
                   </tr>
                 </tbody>
               </table>
-              <a href="{% url 'orders:order_create' %}" class="uppercase btn-dark border-radius margintop30" for="dialog_state">Подтвердить заказ</a>
+              <a href="{% url 'orders:order_create' user.id%}" class="uppercase btn-dark border-radius margintop30" for="dialog_state">Подтвердить заказ</a>
             </div>
           </div>
         </div>

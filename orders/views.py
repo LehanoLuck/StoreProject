@@ -1,25 +1,25 @@
-from django.shortcuts import render
-from .models import OrderItem
-from .forms import OrderCreateForm
+from django.shortcuts import render, redirect
+from .models import OrderItem, Order
 from cart.cart import Cart
+from users.models import CustomUser
 
 
-def order_create(request):
+def order_create(request, user_id):
     cart = Cart(request)
-    if request.method == 'POST':
-        form = OrderCreateForm(request.POST)
-        if form.is_valid():
-            order = form.save()
-            for item in cart:
-                OrderItem.objects.create(order=order,
-                                         product=item['product'],
-                                         price=item['price'],
-                                         quantity=item['quantity'])
-            # очистка корзины
-            cart.clear()
-            return render(request, 'orders/order/created.html',
-                          {'order': order})
-    else:
-        form = OrderCreateForm
-    return render(request, 'orders/order/create.html',
-                  {'cart': cart, 'form': form})
+    user = CustomUser.objects.get(id=user_id)
+    order = Order.objects.create(first_name=user.first_name,
+                                 last_name=user.last_name,
+                                 username=user.username,
+                                 email=user.email,
+                                 city=user.city,
+                                 street=user.street,
+                                 house=user.house)
+    for item in cart:
+        OrderItem.objects.create(order=order,
+                                 product=item['product'],
+                                 price=item['price'],
+                                 quantity=item['quantity'])
+    # очистка корзины
+    cart.clear()
+    return render(request, 'orders/order/created.html',
+                      {'order': order})
