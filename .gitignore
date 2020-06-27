@@ -1,2 +1,11 @@
 /.idea
 /venv
+/cart/__pycache__
+/cart/migrations/__pycache__
+/cloathesStore/__pycache__
+/cloathesStore/migrations/__pycache__
+/orders/__pycache__
+/orders/migrations/__pycache__
+/testStoreProject/__pycache__
+/users/__pycache__
+/users/migrations/__pycache__
