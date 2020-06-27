@@ -51,6 +51,12 @@ def logout_request(request):
     return redirect("Home_DressShop.html")
 
 
+def search(request):
+    query = request.GET.get('q')
+    products = Product.objects.filter(name__contains=query)
+    return render(request, 'shop/product/list.html', {'products': products})
+
+
 def product_list(request, filter=None, slug=None):
     category = None
     color = None

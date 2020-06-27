@@ -5,6 +5,7 @@ app_name = 'cloathesStore'
 
 urlpatterns = [
     url(r'^$', views.product_list, name='product_list'),
+    url(r'^search/$', views.search, name='search'),
     url(r'^(?P<filter>[-\w]+)/(?P<slug>[-\w]+)/$',
         views.product_list,
         name='product_list_by_param'),

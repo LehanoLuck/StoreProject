@@ -107,17 +107,19 @@
             </ul>
           </div>
           <!-- /.navbar-collapse -->
-          <div class=" search-toggle">
-            <div class="top-search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon">
-                  <i class="fa fa-search">
-                  </i>
-                </span>
+          <form action="http://localhost:8000/shop/search" method="get">
+            {% csrf_token %}
+            <div class=" search-toggle">
+              <div class="top-search">
+                <div class="input-group">
+                  <input name="q" type="text" placeholder="Search">
+                  <span class="input-group-addon">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </nav>
     </header>
