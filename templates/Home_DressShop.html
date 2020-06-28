@@ -64,16 +64,14 @@ Home
     </div>
     <div class="row">
       <div id="fourCol-slider" class="owl-carousel">
+        {% for product in products %}
         <div class="item">
           <div class="product_wrap">
             <div class="image">
               <div class="social">
                 <ul>
                   <li>
-                    <a href="#.">
-                      <i class="fa fa-expand">
-                      </i>
-                    </a>
+                    <a href="#."><i class="fa fa-expand"></i></a>
                   </li>
                   <li>
                     <a href="#.">
@@ -89,159 +87,20 @@ Home
                   </li>
                 </ul>
               </div>
-              <a class="fancybox" href="../static/img/заглушка.PNG">
-                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
+              <a class="fancybox" href="{{ product.get_absolute_url }}">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="Product" class="img-responsive">
               </a>
             </div>
             <div class="product_desc">
-              <p>Юбка в складку
-              </p>
+              <p>{{ product.name }}</p>
               <span class="price">
-                <i class="fa fa-gbp">
-                </i>2000.00
+                {{ product.price }}
+                <i class="fa fa-rub"></i>
               </span>
-              <a class="fancybox" href="../static/img/заглушка.PNG" data-fancybox-group="gallery">
-                <i class="fa fa-shopping-bag open">
-                </i>
-              </a>
             </div>
           </div>
         </div>
-        <div class="item">
-          <div class="product_wrap">
-            <div class="image">
-              <div class="tag">
-                <div class="tag-btn">
-                  <span class="uppercase text-center">New
-                  </span>
-                </div>
-              </div>
-              <a class="fancybox" href="../static/img/заглушка.PNG">
-                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
-              </a>
-              <div class="social">
-                <ul>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-expand">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-exchange">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-heart-o">
-                      </i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="product_desc">
-              <p>Брюки
-              </p>
-              <span class="price">
-                <i class="fa fa-gbp">
-                </i>2200.00
-              </span>
-              <a class="fancybox" href="../static/img/заглушка.PNG" data-fancybox-group="gallery">
-                <i class="fa fa-shopping-bag open">
-                </i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="product_wrap">
-            <div class="image">
-              <a class="fancybox" href="../static/img/заглушка.PNG">
-                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
-              </a>
-              <div class="social">
-                <ul>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-expand">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-exchange">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-heart-o">
-                      </i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="product_desc">
-              <p>Платье
-              </p>
-              <span class="price">
-                <i class="fa fa-gbp">
-                </i>1200.00
-              </span>
-              <a class="fancybox" href="../static/img/product7.jpg" data-fancybox-group="gallery">
-                <i class="fa fa-shopping-bag open">
-                </i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="product_wrap">
-            <div class="image">
-              <a class="fancybox" href="../static/img/product8.jpg">
-                <img src="../static/img/заглушка.PNG" alt="Product" class="img-responsive">
-              </a>
-              <div class="social">
-                <ul>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-expand">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-exchange">
-                      </i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#.">
-                      <i class="fa fa-heart-o">
-                      </i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="product_desc">
-              <p>Свитшот
-              </p>
-              <span class="price">
-                <i class="fa fa-gbp">
-                </i>1500.00
-              </span>
-              <a class="fancybox" href="../static/img/product8.jpg" data-fancybox-group="gallery">
-                <i class="fa fa-shopping-bag open">
-                </i>
-              </a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>

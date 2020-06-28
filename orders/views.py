@@ -13,9 +13,11 @@ def order_create(request, user_id):
                                  email=user.email,
                                  city=user.city,
                                  street=user.street,
-                                 house=user.house)
+                                 house=user.house,
+                                 user_id=user_id)
     for item in cart:
         OrderItem.objects.create(order=order,
+                                 name=item['product'].name,
                                  product=item['product'],
                                  price=item['price'],
                                  quantity=item['quantity'])

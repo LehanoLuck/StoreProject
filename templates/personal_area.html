@@ -15,25 +15,25 @@ Home
             <p class="content_space">В данном разделе вы можете просмотреть личную информацию.</p>
 
             <div class="form-group">
-              <label >Имя: </label> {% user.first_name %}
+              <label >Имя: </label> {{ user.first_name }}
             </div>
             <div class="form-group">
-              <label >Фамилия: </label> {% user.last_name %}
+              <label >Фамилия: </label> {{ user.last_name }}
             </div>
             <div class="form-group">
-              <label >Логин: </label> {% user.username %}
+              <label >Логин: </label> {{ user.username }}
             </div>
             <div class="form-group">
-              <label >Email: </label> {% user.email %}
+              <label >Email: </label> {{ user.email }}
             </div>
             <div class="form-group">
-              <label >Город: </label> {% user.city %}
+              <label >Город: </label> {{ user.city }}
             </div>
             <div class="form-group">
-              <label >Улица: </label> {% user.street %}
+              <label >Улица: </label> {{ user.street }}
             </div>
             <div class="form-group">
-              <label >Дом:</label> {% user.house %}
+              <label >Дом:</label> {{ user.house }}
             </div>
             <div class="form-group">
               <a href="http://localhost:8000/edit_area" class="uppercase btn-dark border-radius margintop30">Редактировать</a>
@@ -42,102 +42,46 @@ Home
         {% endif %}
       </div>
         <div class="col-md-6 margintop40">
+          {% if order_items %}
             <h4 class="heading uppercase bottom30">История заказов</h4>
             <div class="table-responsive">
-                <label >Дата заказа: </label> 27.02.2020
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="uppercase">Наименование товара</th>
-                <th class="uppercase">Цена</th>
-                <th class="uppercase">Кол-во</th>
-                <th class="uppercase">Итого:</th>
-                <th class="uppercase"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="product-name">
-                    <h5> Товар #01</h5>
-                </td>
-                <td class="price">
-                 <h5>$170.00</h5>
-                </td>
-                <td class="text-center">
-                  <h5> 01</h5>
-                </td>
-                <td class="price">
-                 <h5>$340.00</h5>
-                </td>
-                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
-              </tr>
-              <tr>
-                 <td class="product-name">
-                    <h5> Товар #01</h5>
-                </td>
-                <td class="price">
-                 <h5>$170.00</h5>
-                </td>
-                <td class="text-center">
-                  <h5> 01</h5>
-                </td>
-                <td class="price">
-                 <h5>$340.00</h5>
-                </td>
-                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
-
-              </tr>
-            </tbody>
-          </table>
-                <label >Дата заказа: </label> 25.02.2020
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="uppercase">Наименование товара</th>
-                <th class="uppercase">Цена</th>
-                <th class="uppercase">Кол-во</th>
-                <th class="uppercase">Итого:</th>
-                <th class="uppercase"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="product-name">
-                    <h5> Товар #01</h5>
-                </td>
-                <td class="price">
-                 <h5>$170.00</h5>
-                </td>
-                <td class="text-center">
-                  <h5> 01</h5>
-                </td>
-                <td class="price">
-                 <h5>$340.00</h5>
-                </td>
-                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
-              </tr>
-              <tr>
-                 <td class="product-name">
-                    <h5> Товар #01</h5>
-                </td>
-                <td class="price">
-                 <h5>$170.00</h5>
-                </td>
-                <td class="text-center">
-                  <h5> 01</h5>
-                </td>
-                <td class="price">
-                 <h5>$340.00</h5>
-                </td>
-                <td class="text-center"><a class="btn-close" href="#."><i class="fa fa-close"></i></a></td>
-
-              </tr>
-            </tbody>
-          </table>
-          </div>
-
-
-          </div>
+              {% for order in order_items %}
+                <label >Дата заказа: </label> {{ order.order.created }}
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="uppercase">Наименование товара</th>
+                      <th class="uppercase">Цена</th>
+                      <th class="uppercase">Кол-во</th>
+                      <th class="uppercase">Итого:</th>
+                      <th class="uppercase"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in order.items %}
+                      <tr>
+                        <td class="product-name">
+                            <h5>{{ item.name }}</h5>
+                        </td>
+                        <td class="price">
+                         <h5>{{ item.price }}</h5>
+                        </td>
+                        <td class="text-center">
+                          <h5>{{ item.quantity }}</h5>
+                        </td>
+                        <td class="price">
+                         <h5>{{ item.get_cost }}</h5>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              {% endfor %}
+            </div>
+          {% else %}
+            <h4 class="heading uppercase bottom30">История заказов пуста</h4>
+          {% endif %}
+        </div>
     </div>
   </div>
 </section>

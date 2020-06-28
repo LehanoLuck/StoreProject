@@ -9,26 +9,22 @@ Home
     <div class="container ">
       <div class="row">
           <div class="col-md-12">
-              <h3 class="uppercase heading bottom30 text-center">Задать вопрос</h3>
-
-            <p class="bottom30 text-center">У вас есть вопрос? Мы всегда рады помочь! <br>
-                Звоните: 8 (ХХХ) ХХХ ХХ-ХХ или пишите: <br>
-            krechetova-73@mail.ru</p>
-</div>
-            <div class="col-md-12">
-
-          <form class="contact-form padding_bottom">
+                <p class="bottom30 text-center">У Вас есть вопрос? Мы всегда рады помочь! <br>
+                Просто введите своё сообщение в этой форме или напишите нам по адресу: <br>
+                krechetova-73@mail.ru</p>
+          </div>
+          <div class="col-md-12">
+          <form class="contact-form padding_bottom" method="post" action="{% url 'send_question' user.id %}">
+            {% csrf_token %}
             <div class="row">
               <div class="col-md-6 form-group">
-
-                <input type="text" class="form-control" placeholder="Имя">
+                <input type="hidden" name="username" class="form-control" value="{{ user.username }}">
               </div>
               <div class="col-md-6 form-group">
-
-                <input type="email" class="form-control" placeholder="e-mail">
+                <input type="hidden" name="email" class="form-control" value="{{ user.email }}">
               </div>
               <div class="col-md-12 form-group">
-                <textarea class="form-control" placeholder="Добавьте сообщение"></textarea>
+                <textarea class="form-control" name="message" placeholder="Добавьте сообщение"></textarea>
                 <input type="submit" class="btn-form uppercase border-radius margintop40" value="Отправить">
               </div>
             </div>

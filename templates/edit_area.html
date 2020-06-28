@@ -9,50 +9,40 @@ Home
     <div class="row">
       <div class="col-md-8 margintop40">
         <h4 class="heading uppercase bottom30">Редактировать информацию</h4>
-          <form class="contact-form">
-            <p class="content_space">В данном разделе вы можете просмотреть и отредактировать личную информацию.</p>
-
-
-
+          <form class="contact-form" action="{% url 'edit_user' user.id %}" method="POST">
+            {% csrf_token %}
+            <p class="content_space">В данном разделе Вы можете просмотреть и отредактировать личную информацию.</p>
             <div class="form-group">
               <label >Имя</label>
-              <input  class="form-control"  placeholder="Иван">
+              <input  class="form-control"  name="first_name" placeholder="Введите имя" value="{{ user.first_name }}">
             </div>
             <div class="form-group">
               <label >Фамилия</label>
-              <input class="form-control" placeholder="Иванов">
+              <input  class="form-control"  name="last_name" placeholder="Введите фамилию" value="{{ user.last_name }}">
             </div>
             <div class="form-group">
               <label >Логин</label>
-              <input class="form-control" placeholder="EOne111">
+              <input  class="form-control"  name="username" placeholder="Введите логин" value="{{ user.username }}">
             </div>
             <div class="form-group">
               <label >E-mail</label>
-              <input  class="form-control"  placeholder="ivanov@example.com">
-            </div>
-            <div class="form-group">
-              <label >Пороль</label>
-              <input class="form-control"  placeholder="*****">
-            </div>
-            <div class="form-group">
-              <label >Повторите пороль</label>
-              <input  class="form-control"  placeholder="*****">
+              <input  class="form-control"  name="email" placeholder="Введите Email" value="{{ user.email }}">
             </div>
             <div class="form-group">
               <label >Город</label>
-              <input  class="form-control"  placeholder="Томск">
+              <input  class="form-control"  name="city" placeholder="Введите город" value="{{ user.city }}">
             </div>
             <div class="form-group">
               <label >Улица</label>
-              <input  class="form-control"  placeholder="Ленина">
+              <input  class="form-control"  name="street" placeholder="Введите улицу" value="{{ user.street }}">
             </div>
             <div class="form-group">
               <label >Дом</label>
-              <input  class="form-control"  placeholder="1">
+              <input  class="form-control"  name="house" placeholder="Введите номер дома" value="{{ user.house }}">
             </div>
             <div class="form-group">
               <input type="submit" class="uppercase margintop40 btn-dark" value="Сохранить изменения">
-                </div>
+            </div>
         </form>
           </div>
         </div>

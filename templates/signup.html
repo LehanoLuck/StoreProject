@@ -12,7 +12,7 @@ SignIn
         <h4 class="heading uppercase bottom30">Регистрация</h4>
         <form class="contact-form" method="post">
             {% csrf_token %}
-            <p class="content_space">Регистрация пользователя осуществлется для покупки и доставки товара по указанному адресу. Таким образом, заполняя следующие поля, вы даёте согласие на обработку персональных данных</p>
+            <p class="content_space">Регистрация пользователя осуществлется для покупки и доставки товара по указанному адресу. Таким образом, заполняя следующие поля, Вы даёте согласие на обработку персональных данных</p>
             <div class="form-group">
                 <label for="{{ form.first_name.id_for_label }}">Имя</label>
                 <div>{{ form.first_name }}</div>

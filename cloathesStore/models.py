@@ -108,8 +108,19 @@ class CartItem(models.Model):
 
 class UserQuestion(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    adminEmail = models.CharField(max_length=250)
+    email = models.CharField(max_length=250)
     message = models.CharField(max_length=500)
 
     class Meta:
         db_table = 'UserQuestion'
+
+
+class Vacancy(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    position = models.CharField(max_length=250)
+    city = models.CharField(max_length=500)
+    citizenship = models.CharField(max_length=500)
+    file = models.FileField(max_length=500)
+
+    class Meta:
+        db_table = 'Vacancy'

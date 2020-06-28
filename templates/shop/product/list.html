@@ -58,32 +58,12 @@
           </div>
         </aside>
       </div>
-      <div class="col-md-9 col-sm-9">
-        <div class="shop-grid-controls">
-          <div class="view-button grid active bottom30">
-            <i class="fa fa-th-large"></i>
-          </div>
-          <div class="view-button list bottom30">
-            <i class="fa fa-align-justify"></i>
-          </div>
-          <div class="entry bottom30">
-            <form class="grid-form">
-              <div class="form-group">
-                <div class="select form-control">
-                  <select name="country" id="sorting">
-                    <option selected>по популярности</option>
-                    <option>по возрастанию цены</option>
-                    <option>по убыванию цены</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+          <div class="col-md-9 col-sm-9">
+            <div class="shop-grid-controls">
+            </div>
           <div class="row shop-grid grid-view">
             {% for product in products %}
-            <div class="col-md-3 col-sm-4">
+            <div class="col-md-4 col-sm-6">
               <div class="product_wrap heading_space">
                 <div class="image">
                   <div class="tag">
@@ -99,31 +79,16 @@
                   <p class="title">{{ product.name }}</p>
                   <div class="list_content">
                     <h4 class="bottom30">{{ product.name }}</h4>
-                    <p>Описасние. </p>
-                    <ul class="review_list bottomtop30">
-                      <li><a href="#.">10 отзыв(ов) </a>
-                      </li>
-                      <li><a href="#.">Оставить отзыв</a>
-                      </li>
-                    </ul>
-                    <h4 class="price bottom30"><i class="fa fa-gbp"></i>{{ product.price }} &nbsp;<span class="discount"><i class="fa fa-gbp"></i>{{ product.price }}</span></h4>
-                    <div class="cart-buttons">
-                      <a class="uppercase border-radius btn-dark" href="cart.html"><i class="fa fa-shopping-basket"></i> &nbsp; Add to cart</a>
-                      <a class="icons" href="#.">
-                        <i class="fa fa-heart-o"></i>
-                      </a>
-                      <a class="icons" href="#.">
-                        <i class="fa fa-exchange"></i>
-                      </a>
-                    </div>
                   </div>
-                  <span class="price"><i class="fa fa-gbp"></i>{{ product.price }}</span>
-                  <a class="fancybox" href="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"  data-fancybox-group="gallery"><i class="fa fa-shopping-bag open"></i></a>
+                  <span class="price">{{ product.price }}
+                <i class="fa fa-rub"></i></span>
+                  <a class="fancybox" href="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}"  data-fancybox-group="gallery"></a>
                 </div>
               </div>
             </div>
             {% endfor %}
           </div>
+        </div>
     </div>
 </section>
 {% endblock %}

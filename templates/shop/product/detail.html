@@ -23,19 +23,29 @@
           <div class="detail_pro margintop40">
             <label >{{ product.name }}</label>
             <p class="bottom30">{{ product.description|linebreaks }}</p>
-            <h2 class="price marginbottom15"><i class="fa fa-rub"></i>{{ product.price }}</h2>
+            <h2 class="price marginbottom15">{{ product.price }}<i class="fa fa-rub"></i></h2>
 
             <form class="cart-form" action="{% url 'cart:cart_add' product.id %}" method="post">
+              {% csrf_token %}
               <div class="form-group">
                 <label >Цвет</label>
                 <p class="bottom30">{{ color.name }}</p>
                 <label >Размер</label>
                 <p class="bottom30">{{ size.name }}</p>
-                <div>
+                {% if user.is_authenticated %}
+                  <div class="input-group spinner">
+                    <input type="text" class="form-control" value="1" name="quantity">
+                    <div class="input-group-btn-vertical">
+                      <div class="btn"><i class="fa fa-angle-up"></i></div>
+                      <div class="btn"><i class="fa fa-angle-down"></i></div>
+                    </div>
+                  </div>
                   {{ cart_product_form }}
-                  {% csrf_token %}
-                </div>
-                <input type="submit" value="Добавить в корзину">
+                  <br>
+                  <input type="submit" value="Добавить в корзину" class="btn-light">
+                {% else %}
+                  <a href="{% url 'login' %}" class="uppercase btn-dark border-radius margintop30">Авторизоваться</a>
+                {% endif %}
               </div>
             </form>
           </div>

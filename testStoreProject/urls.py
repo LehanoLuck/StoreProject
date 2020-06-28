@@ -22,11 +22,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
-    path('Home_DressShop.html', HomePageView.as_view(), name='home'),
+    path('', views.show_products, name='home'),
+    path('Home_DressShop.html', views.show_products, name='home'),
     path('vacancy', VacancyView.as_view(), name='vacancy'),
     path('answer', AnswerView.as_view(), name='answer'),
-    path('personal_area', PersonalAreaView.as_view(), name='personal_area'),
     path('edit_area', EditAreaView.as_view(), name='edit_area'),
     path('info', InfoView.as_view(), name='info'),
     path('users/', include('users.urls')),
@@ -36,6 +35,11 @@ urlpatterns = [
     url(r'^cart/', include('cart.urls', namespace='cart')),
     url(r'^orders/', include('orders.urls', namespace='orders')),
     url(r'^shop/', include('cloathesStore.urls', namespace='cloathesStore')),
+    url(r'^(?P<id>\d+)/$', views.show_orders, name='personal_area'),
+    url(r'^edit_area/(?P<id>\d+)/$', views.edit_user, name='edit_user'),
+    url(r'^answer/(?P<id>\d+)/$', views.send_question, name='send_question'),
+    url(r'^vacancy/(?P<id>\d+)/$', views.send_vacancy, name='send_vacancy'),
+    url(r'^vacancy/(?P<id>\d+)/$', views.send_vacancy, name='send_vacancy'),
 ]
 
 if settings.DEBUG:

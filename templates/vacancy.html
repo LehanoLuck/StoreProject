@@ -5,56 +5,55 @@
 {% endblock %}
 {% block content %}
 <section>
-            <div class="container padding">
-                <div class="row ">
-                    <div class="col-sm-6 padding_after">
-                    <h4 class="heading uppercase bottom30">Вакансии</h4>
-                    <p>Наша Компания уделяет особенное внимание развитию внутрикорпоративных коммуникаций, мы поддерживаем инициативы, приветствуем нестандартные решения и стремления к инновациям. Мы заботимся о развитии нашего персонала. Обучение и наставничество — залог успеха нашей команды, а дружелюбная атмосфера помогает решить любую, даже самую сложную задачу. Будем рады принять в свою команду интересных, креативных, творческих людей, способных привнести свои знания, умения, опыт и свежие идеи в наше общее дело. Приглашаем всех, кто заинтересован в профессиональном росте и неравнодушен к миру моды присоединиться к нашей команде!
-                    </p>
-                        <div class="col-sm-12 padding_after">
-                    <select>
-                    <option selected>- Выберите должность -</option>
-                    <option>Кассир</option>
-                    <option>Консультант</option>
-                    <option>Дизайнер</option>
-                  </select>
-                        </div>
-                        <div class="col-sm-12 padding_after">
-                   <select name="country" id="city">
-                    <option selected>- Выберите город -</option>
-                    <option>Москва</option>
-                    <option>Томск</option>
-                    <option>Новосибирск</option>
-                  </select>
-                            </div>
-                            <div class="col-sm-12 padding_after">
-                    <select >
-                    <option selected>- Гражданство -</option>
-                    <option>РФ</option>
-                    <option>Другое</option>
-                  </select>
-                                </div>
+    <div class="container padding">
+        <div class="row ">
+            <div class="col-sm-6 padding_after">
+                <p>Наша Компания уделяет особенное внимание развитию внутрикорпоративных коммуникаций, мы поддерживаем инициативы, приветствуем нестандартные решения и стремления к инновациям. Мы заботимся о развитии нашего персонала. Обучение и наставничество — залог успеха нашей команды, а дружелюбная атмосфера помогает решить любую, даже самую сложную задачу. Будем рады принять в свою команду интересных, креативных, творческих людей, способных привнести свои знания, умения, опыт и свежие идеи в наше общее дело. Приглашаем всех, кто заинтересован в профессиональном росте и неравнодушен к миру моды присоединиться к нашей команде!
+                </p>
+                <form class="contact-form padding_bottom" method="post" action="{% url 'send_vacancy' user.id %}">
+                    {% csrf_token %}
                     <div class="col-sm-12 padding_after">
-                        <div>Прикрепить резюме</div>
-                        <div>.doc или .pdf, до 5 МБ
-                        </div>
-                        <div class=" padding_small">
-                        <input type="file" accept=".doc, .pdf">
-                   <a class="uppercase btn-light border-radius margintop30">Отправить
-                                </a>
+                        <p>Должность</p>
+                        <select name="position">
+                            <option selected>Кассир</option>
+                            <option>Консультант</option>
+                            <option>Дизайнер</option>
+                        </select>
                     </div>
-                        </div>
-                         </div>
-                    <div class="col-sm-6 ">
-                        <div class="media blog_box">
-                            <div class="media-left">
-                                <a href="catalog.html">
-                                 <img class="media-object" src="{% static 'img/реклама-1.PNG' %}" alt="...">
-                                 </a>
-                            </div>
-                        </div>
+                    <div class="col-sm-12 padding_after">
+                        <p>Выберите город</p>
+                        <select name="city">
+                            <option value="Моска">Москва</option>
+                            <option value="Томск">Томск</option>
+                            <option value="Новосибирск">Новосибирск</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 padding_after">
+                        <p>Гражданство</p>
+                        <select name="citizenship">
+                            <option>РФ</option>
+                            <option>Другое</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 padding_after">
+                        <!--<div>Прикрепить резюме</div>
+                        <div>.doc или .pdf, до 5 МБ</div>
+                        <div class=" padding_small"></div>
+                        <input class="form-control" type="file" name="myfile">-->
+                        <input type="submit" class="btn-form uppercase border-radius margintop40" value="Отправить">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6 ">
+                <div class="media blog_box">
+                    <div class="media-left">
+                        <a href="catalog.html">
+                         <img class="media-object" src="{% static 'img/реклама-1.PNG' %}" alt="...">
+                         </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 {% endblock %}

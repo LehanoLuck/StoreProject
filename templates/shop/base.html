@@ -30,10 +30,10 @@
         <div class="row">
             <ul class="top_link">
               <li>
-                <a class="uppercase">Привет, {{ user.username }} </a>
+                <a class="uppercase">Привет, {{ user.first_name }} </a>
               </li>
               <li>
-                <a href="http://localhost:8000/personal_area" class="uppercase">Личный кабинет </a>
+                <a href="{% url 'personal_area' user.id %}" class="uppercase">Личный кабинет </a>
               </li>
             </ul>
           </div>
@@ -55,29 +55,22 @@
               <li class="dropdown">
                 <a href="http://localhost:8000/shop/" class="dropdown-toggle" data-toggle="dropdown">КАТАЛОГ
                 </a>
-                <ul class="dropdown-menu">
+              </li>
+              {% if user.is_authenticated %}
                   <li>
-                    <a href="http://localhost:8000/shop/">ЖЕНСКАЯ ОДЕЖДА
-                    </a>
+                    <a href="http://localhost:8000/vacancy">ВАКАНСИИ</a>
                   </li>
                   <li>
-                    <a href="http://localhost:8000/shop/">МУЖСКАЯ ОДЕЖДА
-                    </a>
+                    <a href="http://localhost:8000/answer">ЗАДАТЬ ВОПРОС</a>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="{% url 'login' %}">ВАКАНСИИ</a>
                   </li>
                   <li>
-                    <a href="http://localhost:8000/shop/">РАСПРОДАЖА
-                    </a>
+                    <a href="{% url 'login' %}">ЗАДАТЬ ВОПРОС</a>
                   </li>
-                </ul>
-              </li>
-              <li>
-                <a href="http://localhost:8000/vacancy">ВАКАНСИИ
-                </a>
-              </li>
-              <li>
-                <a href="http://localhost:8000/answer">ЗАДАТЬ ВОПРОС
-                </a>
-              </li>
+              {% endif %}
               <li>
                 <a href="http://localhost:8000/info">О НАС</a>
               </li>
@@ -140,17 +133,6 @@
               <h4 class="heading_border heading_space" style="color: black">NewLOOK
               </h4>
               <ul class="account_foot">
-                <li>
-                  <a href="http://localhost:8000/shop/">Женская одежда</a>
-                </li>
-                <li>
-                  <a href="http://localhost:8000/shop/">Мужская одежда
-                  </a>
-                </li>
-                <li>
-                  <a href="http://localhost:8000/shop/">Распродажа
-                  </a>
-                </li>
                 {% if user.is_authenticated %}
                 <li>
                   <a href="http://localhost:8000/personal_area">Личный кабинет
@@ -165,13 +147,22 @@
               <h4 class="heading_border heading_space "style="color: black">Обратная связь
               </h4>
               <ul class="account_foot">
-                <li>
-                  <a href="#.">Узнать о вакансиях
-                  </a>
+                  {% if user.is_authenticated %}
+                    <li>
+                      <a href="http://localhost:8000/vacancy">Узнать о вакансиях</a>
+                    </li>
+                    <li>
+                      <a href="http://localhost:8000/answer">Задать вопрос</a>
+                    </li>
+                    {% else %}
+                      <li>
+                        <a href="{% url 'login' %}">Узнать о вакансиях</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'login' %}">Задать вопрос</a>
+                      </li>
+                    {% endif %}
                 </li>
-                <li>
-                  <a href="http://localhost:8000/answer">Задать вопрос
-                  </a>
               </ul>
             </div>
           </div>

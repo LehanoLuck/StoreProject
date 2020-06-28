@@ -46,9 +46,6 @@ class Cart(object):
             self.save()
 
     def remove_all(self):
-        """
-        Удаление товара из корзины.
-        """
         for product in self.cart:
             del self.cart[product.id]
             self.save()

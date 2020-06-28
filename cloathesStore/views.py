@@ -4,8 +4,13 @@ from django.views.generic import TemplateView
 from django.views.generic import CreateView
 from users.forms import CustomUserCreationForm
 from django.urls import reverse_lazy
-from cloathesStore.models import Category, Product, Color, Size
+from cloathesStore.models import Category, Product, Color, Size, UserQuestion, Vacancy
+from orders.models import Order, OrderItem
 from cart.forms import CartAddProductForm
+from .models import CustomUser
+from django.core.mail import send_mail
+from django.core.files.storage import FileSystemStorage
+from django.contrib import messages
 
 
 class HomePageView(TemplateView):
@@ -54,7 +59,29 @@ def logout_request(request):
 def search(request):
     query = request.GET.get('q')
     products = Product.objects.filter(name__contains=query)
-    return render(request, 'shop/product/list.html', {'products': products})
+    categories = Category.objects.all()
+    colors = Color.objects.all()
+    sizes = Size.objects.all()
+    return render(request, 'shop/product/list.html',
+                  {'categories': categories,
+                  'colors': colors,
+                  'sizes': sizes,
+                  'products': products})
+
+
+def show_orders(request, id):
+    user = CustomUser.objects.get(id=id)
+    orders = Order.objects.filter(user_id=user.id)
+    order_items = []
+    for order in orders:
+        items = OrderItem.objects.filter(order_id=order.id)
+        order_items.append({'order': order, 'items': items})
+    return render(request, 'personal_area.html', {'order_items': order_items})
+
+
+def show_products(request):
+    products = Product.objects.all()
+    return render(request, 'Home_DressShop.html', {'products': products})
 
 
 def product_list(request, filter=None, slug=None):
@@ -96,3 +123,57 @@ def product_detail(request, id):
                                                         'color': color,
                                                         'size': size,
                                                         'cart_product_form': cart_product_form})
+
+
+def edit_user(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == "POST":
+        user.first_name = request.POST.get("first_name")
+        user.last_name = request.POST.get("last_name")
+        user.username = request.POST.get("username")
+        user.city = request.POST.get("city")
+        user.street = request.POST.get("street")
+        user.house = request.POST.get("house")
+        user.email = request.POST.get("email")
+        user.save()
+        return redirect("http://localhost:8000")
+    else:
+        return render(request, 'edit_area.html')
+
+
+def send_question(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == "POST":
+        send_mail('Subject here',
+                  request.POST.get("message"),
+                  'alex.shiro.1024@gmail.com',
+                  ['alex.shiro.1024@gmail.com'],
+                  fail_silently=True)
+        UserQuestion.objects.create(
+            message=request.POST.get("message"),
+            user_id=id,
+            email=user.email
+        )
+        return redirect("http://localhost:8000")
+    else:
+        return render(request, 'answer.html')
+
+
+def send_vacancy(request, id):
+    user = CustomUser.objects.get(id=id)
+    if request.method == "POST":
+        #myfile = request.FILES['myfile']
+        #fs = FileSystemStorage()
+        #filename = fs.save(myfile.name, myfile)
+        #uploaded_file_url = fs.url(filename)
+        Vacancy.objects.create(
+            position=request.POST.get("position"),
+            city=request.POST.get("city"),
+            citizenship=request.POST.get("citizenship"),
+            #file=myfile,
+            user_id=user.id
+        )
+        messages.info(request, 'Успешно отправлено')
+        return redirect("http://localhost:8000")
+    else:
+        return render(request, 'answer.html')
