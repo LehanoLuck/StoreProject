@@ -9,8 +9,8 @@ from orders.models import Order, OrderItem
 from cart.forms import CartAddProductForm
 from .models import CustomUser
 from django.core.mail import send_mail
-from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
+#comment
 
 
 class HomePageView(TemplateView):
